@@ -22,6 +22,10 @@ app.use(bodyParser.json());
 
 NoteRoute(app);
 
+app.use(function(req, res) {
+	res.status(404).send({url: req.originalUrl + ' not found'})
+});
+
 app.listen(server_port, server_ip, function() {
 	console.log("Listening on " + server_ip + ", port " + server_port);
 });
