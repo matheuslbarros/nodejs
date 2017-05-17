@@ -1,25 +1,22 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Example of api",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matheuslbarros/nodejs.git"
   },
-  "author": "",
+  "author": "Matheus Lisboa de Barros",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/matheuslbarros/nodejs/issues"
   },
   "homepage": "https://github.com/matheuslbarros/nodejs#readme",
-  "devDependencies": {
-    "nodemon": "^1.11.0"
-  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
