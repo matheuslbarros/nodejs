@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 var NoteSchema = new Schema({
-	user: { type: ObjectId, ref: 'User' }
+	user: { type: ObjectId, ref: 'User' },
 	title: {
 		type: String,
 		Required: 'Kindly enter the title of the note'

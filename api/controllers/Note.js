@@ -37,7 +37,8 @@ exports.read = function(req, res) {
 				res.send(err);
 			} else {
 				res.json(note);
-			});
+			}
+        });
 };
 
 exports.update = function(req, res) {
