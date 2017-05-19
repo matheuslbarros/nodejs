@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 NoteRoute(app);
 UserRoute(app);
-UserNoRoute(app);
+UserNoteRoute(app);
 
 app.get('/', function (req, res) {
 	res.send('GET request to the homepage');
