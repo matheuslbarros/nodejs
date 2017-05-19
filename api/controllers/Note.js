@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var Note = mongoose.model('Note');
+var Note = require('../models/Note');
 
-exports.find = function(req, res) {
+module.exports.find = function(req, res) {
 	Note
 		.find({})
 		.populate("user")
@@ -17,7 +17,7 @@ exports.find = function(req, res) {
 		});
 };
 
-exports.create = function(req, res) {
+module.exports.create = function(req, res) {
 	var note = new Note(req.body);
 	note.save(function(err, note) {
 		if (err) {
@@ -28,7 +28,7 @@ exports.create = function(req, res) {
 	});
 };
 
-exports.read = function(req, res) {
+module.exports.read = function(req, res) {
 	Note
 		.findOne({ _id: req.params.id })
 		.populate("user")
@@ -41,7 +41,7 @@ exports.read = function(req, res) {
         });
 };
 
-exports.update = function(req, res) {
+module.exports.update = function(req, res) {
 	Note.findOneAndUpdate(req.params.id, req.body, {new: true}, function(err, note) {
 		if (err) {
 			res.send(err);
@@ -51,7 +51,7 @@ exports.update = function(req, res) {
 	});
 };
 
-exports.delete = function(req, res) {
+module.exports.delete = function(req, res) {
 	Note.remove({
 		_id: req.params.id
 	}, function(err, note) {

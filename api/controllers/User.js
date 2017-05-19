@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var User = require('../models/User');
 
-exports.find = function(req, res) {
+module.exports.find = function(req, res) {
 	User
 		.find({})
 		.limit(10)
@@ -16,7 +16,7 @@ exports.find = function(req, res) {
 		});
 };
 
-exports.create = function(req, res) {
+module.exports.create = function(req, res) {
 	var user = new User(req.body);
 	user.save(function(err, user) {
 		if (err) {
