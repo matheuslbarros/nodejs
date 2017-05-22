@@ -8,11 +8,11 @@ var NoteSchema = new Schema({
 	user: { type: ObjectId, ref: 'User' },
 	title: {
 		type: String,
-		Required: 'Kindly enter the title of the note'
+		required: 'Kindly enter the title of the note'
 	},
 	description: {
 		type: String,
-		Required: 'Kindly enter the description of the note'
+		required: 'Kindly enter the description of the note'
 	},
 	created_date: {
 		type: Date,

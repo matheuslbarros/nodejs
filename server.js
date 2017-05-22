@@ -8,9 +8,9 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var NoteRoute = require('./api/routes/Note');
-var UserRoute = require('./api/routes/User');
-var UserNoteRoute = require('./api/routes/UserNote');
+var authenticate = require('./api/middlewares/Authenticate');
+var authenticated = require('./api/middlewares/Authenticated');
+var routes = require('./routes');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl);
@@ -19,14 +19,15 @@ var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(authenticate);
 
-NoteRoute(app);
-UserRoute(app);
-UserNoteRoute(app);
+app.all('/api/*', authenticated);
 
 app.get('/', function (req, res) {
 	res.send('GET request to the homepage');
 });
+
+routes(app);
 
 app.use(function(req, res) {
 	res.status(404).send({url: req.originalUrl + ' not found'});

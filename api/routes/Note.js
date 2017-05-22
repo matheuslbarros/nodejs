@@ -3,11 +3,11 @@
 module.exports = function(app) {
 	var noteController = require('../controllers/Note');
 	
-	app.route('/notes')
+	app.route('/api/notes')
 		.get(noteController.find)
 		.post(noteController.create);
 	
-	app.route('/notes/:id')
+	app.route('/api/notes/:id')
 		.get(noteController.read)
 		.put(noteController.update)
 		.delete(noteController.delete);
